@@ -49,6 +49,7 @@ public class ShiroConfig {
 		
 		Map<String, Filter>filters = Maps.newHashMap();
 		filters.put("perms", urlPermissionsFilter());
+		filters.put("authc", customCASAuthenticationFilter());
 		filters.put("anon", new AnonymousFilter());
 		bean.setFilters(filters);
 		
@@ -59,6 +60,7 @@ public class ShiroConfig {
 		chains.put("/base/**", "anon");
 		chains.put("/css/**", "anon");
 		chains.put("/layer/**", "anon");
+		chains.put("/**", "authc");
 		chains.put("/**", "perms");
 		bean.setFilterChainDefinitionMap(chains);
 		return bean;
@@ -107,6 +109,11 @@ public class ShiroConfig {
 	@Bean
 	public URLPermissionsFilter urlPermissionsFilter() {
 		return new URLPermissionsFilter();
+	}
+	
+	@Bean
+	public CustomCASAuthenticationFilter customCASAuthenticationFilter() {
+		return new CustomCASAuthenticationFilter();
 	}
 	
 	@Bean
