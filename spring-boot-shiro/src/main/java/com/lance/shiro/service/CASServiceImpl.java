@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.lance.shiro.constant.CASConstant;
+import com.lance.shiro.config.SysPreConfig;
 
 @Service
 public class CASServiceImpl implements CASSercice {
@@ -25,8 +25,8 @@ public class CASServiceImpl implements CASSercice {
 	@Override
 	public String getTicketGrantingTicket(HttpServletResponse response, String username, String password) {
 		HttpClient client = new HttpClient();
-		String url = CASConstant.CAS_SERVER + "/v1/tickets";
-		PostMethod post = new PostMethod(url);
+		String url = SysPreConfig.cas_server_prefix + "/v1/tickets";
+		PostMethod post = new PostMethod(url); 
 		post.setRequestBody(new NameValuePair[] { new NameValuePair("username", username),
 				new NameValuePair("password", password) });
 		String ticketGrantingTicket = null;
@@ -75,7 +75,7 @@ public class CASServiceImpl implements CASSercice {
 		}
 		if (StringUtils.isNotEmpty(ticketGrantingTicket)) {
 			HttpClient client = new HttpClient();
-			StringBuilder url = new StringBuilder(CASConstant.CAS_SERVER);
+			StringBuilder url = new StringBuilder(SysPreConfig.cas_server_prefix);
 			url.append("/v1/tickets/").append(ticketGrantingTicket);
 			DeleteMethod delete = new DeleteMethod(url.toString());
 			try {
@@ -106,7 +106,7 @@ public class CASServiceImpl implements CASSercice {
 		}
 		if (StringUtils.isNotEmpty(ticketGrantingTicket)) {
 			HttpClient client = new HttpClient();
-			StringBuilder url = new StringBuilder(CASConstant.CAS_SERVER);
+			StringBuilder url = new StringBuilder(SysPreConfig.cas_server_prefix);
 			url.append("/v1/tickets/").append(ticketGrantingTicket);
 			GetMethod get = new GetMethod(url.toString());
 			try {
@@ -139,3 +139,4 @@ public class CASServiceImpl implements CASSercice {
 	}
 
 }
+

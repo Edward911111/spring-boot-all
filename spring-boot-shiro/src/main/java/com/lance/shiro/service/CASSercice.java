@@ -5,8 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface CASSercice {
 
-	public abstract String getTicketGrantingTicket(HttpServletResponse response, String username,
-			String password);
+	public abstract String getTicketGrantingTicket(HttpServletResponse response, String username, String password);
 
 	public abstract String getServiceTicket(HttpServletRequest request, HttpServletResponse response,
 			String ticketGrantingTicket, String service);

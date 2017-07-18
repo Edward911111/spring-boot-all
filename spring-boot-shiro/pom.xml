@@ -93,6 +93,12 @@
 	    <artifactId>commons-httpclient</artifactId>
 	    <version>3.1</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+>>>>>>> 57d5fe8adf4c0c9ed7e1070e00b68ea22a7fc1e5
+		</dependency>
 	</dependencies>
 
 	<build>
