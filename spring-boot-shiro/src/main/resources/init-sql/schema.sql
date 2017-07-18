@@ -33,6 +33,7 @@ INSERT INTO `t_module` VALUES ('9', 'More navigation', null, '1', 'More_navigati
 INSERT INTO `t_module` VALUES ('10', 'Nav item again', null, '1', 'Nav_item_again1', '2016-07-01 20:38:28');
 INSERT INTO `t_module` VALUES ('11', 'One more nav', null, '1', 'One_more_nav1', '2016-05-31 20:38:18');
 INSERT INTO `t_module` VALUES ('12', 'Another nav item', null, '1', 'Another_nav_item1', '2016-05-29 20:38:31');
+INSERT INTO `t_module` VALUES ('13', 'User', '/user/getUserInfo', '1', 'UserInfo', '2016-05-29 20:38:31');
 
 -- ----------------------------
 -- Table structure for `t_role`
@@ -77,6 +78,7 @@ INSERT INTO `t_role_module` VALUES ('9', '1', '9');
 INSERT INTO `t_role_module` VALUES ('10', '1', '10');
 INSERT INTO `t_role_module` VALUES ('11', '1', '11');
 INSERT INTO `t_role_module` VALUES ('12', '1', '12');
+INSERT INTO `t_role_module` VALUES ('13', '1', '13');
 
 -- ----------------------------
 -- Table structure for `t_user`

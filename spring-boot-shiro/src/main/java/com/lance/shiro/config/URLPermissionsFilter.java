@@ -3,6 +3,7 @@ package com.lance.shiro.config;
 import java.io.IOException;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,15 @@ import org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.lance.shiro.service.CASSercice;
 import com.lance.shiro.service.UserService;
 
 @Component("urlPermissionsFilter")
 public class URLPermissionsFilter extends PermissionsAuthorizationFilter{
 	@Autowired
 	private UserService userService;
+	@Resource 
+	private CASSercice casSercice;
 
 	@Override
 	public boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws IOException {
